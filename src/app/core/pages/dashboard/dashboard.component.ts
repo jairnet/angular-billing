@@ -40,6 +40,7 @@ isPhone: Observable<boolean> = this.breakpointObserver
   ngOnInit() {
   }
 
+
   clear() {
     for (let i = 0; i < this.data.length; i++) {
       this.data[i].cantidad = 0;

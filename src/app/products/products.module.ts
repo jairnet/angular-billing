@@ -15,4 +15,3 @@ import { ProductService } from './service/product.service';
     providers:[ProductService]
   })
   export class ProductsModule { }
-  

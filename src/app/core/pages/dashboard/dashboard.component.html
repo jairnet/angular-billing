@@ -2,18 +2,28 @@
     <mat-sidenav #sideNav class="sidenav list-dark" [mode]="(isPhone | async) ? 'over' : 'side'" [opened]="!(isPhone | async)"
     fixedInViewPort>
     <mat-nav-list>
-            <a routerLink="//" routerLinkActive="active" mat-list-item><h2>Russo 2.0</h2></a>
-            <ul>
-                <li *ngFor="let p of data">
-                    {{ p.title }}
-                    {{ p.cantidad }}
-                    ${{ p.impuesto }}
-                    ${{ p.subtotal }}
-                </li>
-           </ul>        
+        <a routerLink="//" routerLinkActive="active" mat-list-item><h2>Russo 2.0</h2></a> 
+        
+       
+        <table>
+            <tr>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Impuesto</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr li *ngFor="let p of data">
+                <td>{{ p.title }}</td>
+                <td>{{ p.cantidad }}</td>
+                <td>${{ p.impuesto }}</td>
+                <td>${{ p.subtotal }}</td>
+            </tr>
+        </table>   
+        <hr>   
         <h2 >Impuesto {{ sumimpuesto() }} </h2>
         <h2 >Total a Pagar  {{ sumtotal() }} </h2>                                                                                                                                
         <button (click) = "clear()">Limpiar</button>
+        <button (click) = "factura()">Facturar</button>
     </mat-nav-list>
     </mat-sidenav>
 <mat-sidenav-content class="dashboard-content">

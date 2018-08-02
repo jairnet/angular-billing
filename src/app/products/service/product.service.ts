@@ -6,17 +6,16 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 
-
 export class ProductService {
     data: Product[] = [];
-    
+
     constructor() {}
 
     loadProduct(): Observable<Product[]> {
         return timer(500)
         .pipe(
             map(() => {
-                if(this.data.length === 0){
+                if (this.data.length === 0) {
                     this.data = [
                         {title: 'Chivas 12', price: 25000, cantidad: 0, impuesto: 0, subtotal: 0,
                         img: 'http://www.tuckshop.sg/wp-content/uploads/2015/12/Chivas-12-300x300.jpg'},
