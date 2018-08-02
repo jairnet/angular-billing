@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+
+@include mat-core();//inserta todos los estidlos de material por defecto
+
+$appPrimary: mat-palette($mat-red);
+$appSecundary: mat-palette($mat-amber);
+$appWarn: mat-palette($mat-red);//colores de la accion en el input
+
+$appTheme:mat-light-theme($appPrimary,$appSecundary,$appWarn);
+$appDarkTheme: mat-dark-theme($appPrimary,$appSecundary,$appWarn);
+
+@include angular-material-theme($appTheme);
+
+.dark-input{
+    @include angular-material-theme($appDarkTheme);
+}
+
+
+.side-dark{
+    $background-dark : map-get($appDarkTheme, background );
+    $background-side : map-merge($background-dark, (card: map_get($mat-grey, 900), dialog: map_get($mat-grey, 900),));
+    $side-dark :map-merge($appDarkTheme, (background: $background-side) );
+   
+    @include mat-sidenav-theme($side-dark); 
+   
+   }
+   
+   .list-dark{
+    $foreground-dark : map-get($appDarkTheme ,foreground );
+    $foreground-side : map-merge($foreground-dark , (text:#999) );
+    $list-dark :map-merge($appDarkTheme, (foreground: $foreground-side) );
+   
+   
+    @include mat-list-theme($list-dark); 
+}
+   

@@ -1,0 +1,28 @@
+<mat-sidenav-container class="dashboard side dark">
+    <mat-sidenav #sideNav class="sidenav list-dark" [mode]="(isPhone | async) ? 'over' : 'side'" [opened]="!(isPhone | async)"
+    fixedInViewPort>
+    <mat-nav-list>
+            <a routerLink="//" routerLinkActive="active" mat-list-item><h2>Russo 2.0</h2></a>
+            <ul>
+                <li *ngFor="let p of data">
+                    {{ p.title }}
+                    {{ p.cantidad }}
+                    ${{ p.impuesto }}
+                    ${{ p.subtotal }}
+                </li>
+           </ul>        
+        <h2 >Impuesto {{ sumimpuesto() }} </h2>
+        <h2 >Total a Pagar  {{ sumtotal() }} </h2>                                                                                                                                
+        <button (click) = "clear()">Limpiar</button>
+    </mat-nav-list>
+    </mat-sidenav>
+<mat-sidenav-content class="dashboard-content">
+<mat-toolbar color="primary">
+    <button mat-icon-button *ngIf="isPhone | async" (click)="sideNav.toggle()">
+     <mat-icon>menu</mat-icon>   
+    </button>
+    <span style="text-align: center;">Productos</span>
+</mat-toolbar>
+<router-outlet></router-outlet>
+</mat-sidenav-content>
+</mat-sidenav-container>

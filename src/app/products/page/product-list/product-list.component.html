@@ -1,0 +1,18 @@
+<div class="content section" fxLayout="row wrap"  fxLayoutGap="15px">
+    <div fxFlex="0 0 100%" fxFlex.gt-sm="0 0 calc(50% - 15%)" fxFlex.gt-md="00 calc(33% - 15%)"
+        *ngFor="let m of data">
+		<mat-card>
+        	<img src="{{m.img}}">
+			<mat-card-header>
+    		<mat-card-title>{{m.title}}</mat-card-title>
+			</mat-card-header>
+			<mat-card-content>
+			    <p>{{m.price | currency}}</p>
+			</mat-card-content>
+			<mat-card-actions align="end">
+				<button mat-button color="acent" (click)="deleteItem(m.title)">-</button>
+			    <button mat-button color="acent" (click)="addItem(m.title)">+</button>
+			</mat-card-actions>
+		</mat-card>
+	</div>
+</div>
