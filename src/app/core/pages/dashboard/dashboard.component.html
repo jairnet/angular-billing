@@ -5,11 +5,11 @@
         <a routerLink="//" routerLinkActive="active" mat-list-item><h2>Russo 2.0</h2></a> 
         
        
-        <table>
+        <table class="table-fact">
             <tr>
                 <th>Producto</th>
                 <th>Cantidad</th>
-                <th>Impuesto</th>
+                <th>Iva</th>
                 <th>Subtotal</th>
             </tr>
             <tr li *ngFor="let p of data">
@@ -22,12 +22,12 @@
         <hr>   
         <h2 >Impuesto {{ sumimpuesto() }} </h2>
         <h2 >Total a Pagar  {{ sumtotal() }} </h2>                                                                                                                                
-        <button (click) = "clear()">Limpiar</button>
-        <button (click) = "factura()">Facturar</button>
+        <button mat-raised-button color="accent" (click) = "clear()">Limpiar</button>
+        <button mat-raised-button color="primary" (click) = "factura()">Facturar</button>
     </mat-nav-list>
     </mat-sidenav>
 <mat-sidenav-content class="dashboard-content">
-<mat-toolbar color="primary">
+<mat-toolbar color="warn">
     <button mat-icon-button *ngIf="isPhone | async" (click)="sideNav.toggle()">
      <mat-icon>menu</mat-icon>   
     </button>

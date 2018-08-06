@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ProductService, Product } from '../../../products/service/product.service';
 import { finalize } from 'rxjs/internal/operators/finalize';
+import { MatModule } from '../../../shared/mat.module';
 
 
 @Component({
@@ -18,10 +19,13 @@ export class DashboardComponent implements OnInit {
   public sumatotal: any = 0;
   public sumaimpuesto: any = 0;
   loading: Boolean = false;
+  public selectedEmoji: string;
+
 
   constructor(
     private breakpointObserver: BreakpointObserver,
     service: ProductService,
+ 
   ) {
     this.loading = true;
     service.loadProduct()
@@ -40,6 +44,16 @@ isPhone: Observable<boolean> = this.breakpointObserver
   ngOnInit() {
   }
 
+  factura() {
+    let show: any = '\n';
+    for (let i = 0; i < this.data.length; i++) {
+      if (this.data[i].cantidad > 0) {
+        show = show + this.data[i].cantidad + ' de: ' + this.data[i].title + ' a  $ ' + this.data[i].subtotal + '\n';
+      }
+    }
+    alert(show + '\n' + 'Total Impuestos: $' + this.sumimpuesto() + '\n' + 'Total a Pagar: $' + this.sumtotal());
+    this.clear();
+  }
 
   clear() {
     for (let i = 0; i < this.data.length; i++) {

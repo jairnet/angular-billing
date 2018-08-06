@@ -1,8 +1,8 @@
 @import '~@angular/material/theming';
 
-@include mat-core();//inserta todos los estidlos de material por defecto
+@include mat-core();//inserta todos los estilos de material por defecto
 
-$appPrimary: mat-palette($mat-red);
+$appPrimary: mat-palette($mat-green);
 $appSecundary: mat-palette($mat-amber);
 $appWarn: mat-palette($mat-red);//colores de la accion en el input
 

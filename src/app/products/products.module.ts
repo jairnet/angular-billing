@@ -12,6 +12,6 @@ import { ProductService } from './service/product.service';
       SharedModule
     ],
     declarations: [ProductListComponent, DetailProductComponent, ProductsComponent],
-    providers:[ProductService]
+    providers: [ProductService]
   })
   export class ProductsModule { }

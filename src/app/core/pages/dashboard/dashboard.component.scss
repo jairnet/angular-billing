@@ -9,7 +9,23 @@
     background: #555;
 ;}
 
+.table-fact{
+    height: 50vh;
+}
+
 .mat-nav-list .mat-list-item.active{
     background: #ffaa00;
+    color: white;
+}
+
+table th, td {
+    text-align: center;
+}
+
+th {
+    color: #ffaa00;
+}
+
+h2, td {
     color: white;
 }
